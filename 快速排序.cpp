@@ -1,68 +1,68 @@
-//#include<iostream>
-//using namespace std;
-//
-//
-///*Ê±¼ä¸´ÔÓ¶Ènlogn£¬×îºÃÒ²ÊÇ
-//* ×î»µÊÇn^2
-//* ¿Õ¼ä¸´ÔÓ¶Èlogn
-//* ²»ÎÈ¶¨
-//*/
-//
-//void printArr(int arr[], int len)
-//{
-//	//int len = sizeof(arr) / sizeof(arr[0]);
-//	for (int i = 0; i < len; i++) {
-//		cout << arr[i] << " ";
-//	}
-//	cout << endl;
-//}
-//
-//void Quick_sort(int arr[],int left,int right)
-//{
-//	if (left >= right)//²»ĞèÒªÅÅĞòÖ±½Ó·µ»Ø
-//		return;
-//	static int len = right+1;
-//	int i = left, j = right;
-//	int pivot = arr[left];
-//	while (i < j) {
-//		//´ÓÓÒÏò×óÕÒµ½±ÈpivotĞ¡µÄÊı×Ö·ÅÈë×ó¶Ë
-//		while (i<j && arr[j]>pivot) {
-//			j--;
-//		}
-//		if (i < j) {
-//			arr[i++] = arr[j];
-//		}
-//		//´Ó×óÏòÓÒÕÒµ½±Èpivot´óµÄÊı×Ö·ÅÓÒ±ß
-//		while (i < j && arr[i] < pivot) {
-//			i++;
-//		}
-//		if (i < j) {
-//			arr[j] = arr[i];
-//		}
-//		//Ö±µ½×óÓÒÏÂ±êÖØºÏ£¬½«pivot·ÅÈë¸ÃÎ»ÖÃ
-//		if (i >= j) {
-//			arr[i] = pivot;
-//		}
-//		//cout << "pivot = " << pivot << endl;
-//		//cout << "Arr : " << endl;
-//		//printArr(arr, len);
-//	}
-//	Quick_sort(arr, left, i - 1);//×ó°ëÅÅĞò
-//	Quick_sort(arr, i + 1, right);//ÓÒ°ëÅÅĞò
-//}
-//
-//void test01()
-//{
-//	int arr[] = { 5,3,6,7,8,2,6,8,9,4,10,15,26 };
-//	int len = sizeof(arr) / sizeof(arr[0]);
-//	printArr(arr,len);
-//
-//	Quick_sort(arr, 0, len-1);
-//	printArr(arr,len);
-//}
-//
-//int main()
-//{
-//	test01();
-//	return 0;
-//}
+#include<iostream>
+using namespace std;
+
+
+/*æ—¶é—´å¤æ‚åº¦nlognï¼Œæœ€å¥½ä¹Ÿæ˜¯
+* æœ€åæ˜¯n^2
+* ç©ºé—´å¤æ‚åº¦logn
+* ä¸ç¨³å®š
+*/
+
+void printArr(int arr[], int len)
+{
+	//int len = sizeof(arr) / sizeof(arr[0]);
+	for (int i = 0; i < len; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void Quick_sort(int arr[],int left,int right)
+{
+	if (left >= right)//ä¸éœ€è¦æ’åºç›´æ¥è¿”å›
+		return;
+	static int len = right+1;
+	int i = left, j = right;
+	int pivot = arr[left];
+	while (i < j) {
+		//ä»å³å‘å·¦æ‰¾åˆ°æ¯”pivotå°çš„æ•°å­—æ”¾å…¥å·¦ç«¯
+		while (i<j && arr[j]>pivot) {
+			j--;
+		}
+		if (i < j) {
+			arr[i++] = arr[j];
+		}
+		//ä»å·¦å‘å³æ‰¾åˆ°æ¯”pivotå¤§çš„æ•°å­—æ”¾å³è¾¹
+		while (i < j && arr[i] < pivot) {
+			i++;
+		}
+		if (i < j) {
+			arr[j] = arr[i];
+		}
+		//ç›´åˆ°å·¦å³ä¸‹æ ‡é‡åˆï¼Œå°†pivotæ”¾å…¥è¯¥ä½ç½®
+		if (i >= j) {
+			arr[i] = pivot;
+		}
+		//cout << "pivot = " << pivot << endl;
+		//cout << "Arr : " << endl;
+		//printArr(arr, len);
+	}
+	Quick_sort(arr, left, i - 1);//å·¦åŠæ’åº
+	Quick_sort(arr, i + 1, right);//å³åŠæ’åº
+}
+
+void test01()
+{
+	int arr[] = { 5,3,6,7,8,2,6,8,9,4,10,15,26 };
+	int len = sizeof(arr) / sizeof(arr[0]);
+	printArr(arr,len);
+
+	Quick_sort(arr, 0, len-1);
+	printArr(arr,len);
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
